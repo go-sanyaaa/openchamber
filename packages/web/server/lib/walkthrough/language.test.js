@@ -67,12 +67,14 @@ describe('normalizeLanguage', () => {
     expect(normalizeLanguage('uk')).toBe('uk');
     expect(normalizeLanguage('zh-TW')).toBe('zh-TW');
     expect(normalizeLanguage('pt-BR')).toBe('pt-BR');
+    expect(normalizeLanguage('ru')).toBe('ru');
   });
 
   it('tolerates case and separator drift from a platform locale', () => {
     expect(normalizeLanguage('uk-UA')).toBe('uk');
     expect(normalizeLanguage('pt_br')).toBe('pt-BR');
     expect(normalizeLanguage('ja-JP')).toBe('ja');
+    expect(normalizeLanguage('ru-RU')).toBe('ru');
   });
 
   // A language preference is about prose. Refusing to write a walkthrough over
@@ -86,6 +88,7 @@ describe('normalizeLanguage', () => {
 
   it('names languages in English, matching the language of the prompt', () => {
     expect(languageName('uk')).toBe('Ukrainian');
+    expect(languageName('ru')).toBe('Russian');
     expect(languageName('nope')).toBe('English');
   });
 });
@@ -97,8 +100,8 @@ describe('prompt language instruction', () => {
   });
 
   it('asks for prose in the chosen language', () => {
-    const { system } = buildPrompt({ ...PROMPT_INPUT, language: 'uk' });
-    expect(system).toMatch(/Write all prose in Ukrainian/);
+    const { system } = buildPrompt({ ...PROMPT_INPUT, language: 'ru' });
+    expect(system).toMatch(/Write all prose in Russian/);
   });
 
   // Aliases are keys the server resolves back to hunk ids and icon/importance
@@ -120,11 +123,11 @@ describe('cache key', () => {
   // Without the language in the key, asking for a translation is answered with
   // the untranslated entry that was already there.
   it('separates walkthroughs written in different languages', () => {
-    expect(keyFor('uk')).not.toBe(keyFor('en'));
+    expect(keyFor('ru')).not.toBe(keyFor('en'));
   });
 
   it('is stable for the same language', () => {
-    expect(keyFor('uk')).toBe(keyFor('uk'));
+    expect(keyFor('ru')).toBe(keyFor('ru'));
   });
 });
 
@@ -148,10 +151,10 @@ describe('generating in a language', () => {
   });
 
   it('sends the instruction and records the language with the result', async () => {
-    const result = await generateWalkthrough({ directory: '/repo', source: SOURCE, language: 'uk' });
+    const result = await generateWalkthrough({ directory: '/repo', source: SOURCE, language: 'ru' });
 
-    expect(generateSmallModelText.mock.calls[0][0].system).toMatch(/Write all prose in Ukrainian/);
-    expect(result.language).toBe('uk');
+    expect(generateSmallModelText.mock.calls[0][0].system).toMatch(/Write all prose in Russian/);
+    expect(result.language).toBe('ru');
   });
 
   it('does not serve one language from the other language cache entry', async () => {

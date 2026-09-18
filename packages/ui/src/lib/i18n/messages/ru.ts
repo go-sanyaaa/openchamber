@@ -2,6 +2,7 @@ import type { I18nKey } from './en';
 import { settingsDict } from './ru.settings';
 import { linearIssuePickerI18n } from './linear-issue-picker.i18n';
 import { linearPanelI18n } from './linear-panel.i18n';
+import { routingI18n } from './routing.i18n';
 import { pluginPanelI18n } from './plugin-panel.i18n';
 
 export const dict = {
@@ -31,6 +32,7 @@ export const dict = {
   ...settingsDict,
   ...linearIssuePickerI18n.ru,
   ...linearPanelI18n.ru,
+  ...routingI18n.ru,
   ...pluginPanelI18n.ru,
   'terminalView.actions.attachSelection': "Прикрепить выбранный результат",
   'terminalView.actions.copySelection': "Копировать выбранный вывод",
@@ -1629,6 +1631,8 @@ export const dict = {
   'diffView.unavailable.missingDescription': "Он был удален после загрузки списка изменений. Список обновляется.",
   'diffView.unavailable.nestedRepositoryTitle': "Отдельный репозиторий Git.",
   'diffView.unavailable.nestedRepositoryDescription': "У этой папки собственная история Git. Откройте ее как проект, чтобы увидеть изменения.",
+  'diffView.unavailable.untrackedDirectoryTitle': "Папка с новыми файлами",
+  'diffView.unavailable.untrackedDirectoryDescription': "В этой папке слишком много новых файлов, чтобы показывать их по отдельности. Добавьте их в индекс или внесите папку в .gitignore, если она не относится к репозиторию.",
   'diffView.submodule.title': "Субмодуль",
   'diffView.submodule.commitChanged': "Зафиксировать {from} → {to}",
   'diffView.submodule.commitUnchanged': "Все еще на коммите {commit}",
@@ -3325,7 +3329,7 @@ export const dict = {
   'chat.workStatus.telemetry.speedDescription': "Токены, созданные на всех этапах, включая рассуждения, разделенные по времени с удаленным выполнением инструмента. Ожидание модели по-прежнему учитывается, поэтому большое количество коротких вызовов инструментов может снизить это число.",
   'chat.workStatus.telemetry.llmDuration': "Модельное время",
   'chat.workStatus.telemetry.llmDurationDescription': "Время, потраченное на все этапы модели, включая ожидание ответов. Время выполнения инструмента удалено. Это не просто время, потраченное на создание текста.",
-  'chat.workStatus.telemetry.toolDuration': "Время работы инструмента",
+  'chat.workStatus.telemetry.toolDuration': "Инструменты",
   'chat.workStatus.telemetry.toolDurationDescription': "Время, затраченное на использование инструментов, включая неудачные вызовы. Инструменты, работающие одновременно, учитываются один раз, а не суммируются.",
   'chat.workStatus.telemetry.ttft': "Средний TTFT",
   'chat.workStatus.telemetry.ttftDescription': "Среднее время ожидания перед началом первого текста или рассуждения на каждом этапе модели. Скрывается, когда у какого-либо шага отсутствует временная метка начала, как это часто бывает с шагами, выполняемыми только с помощью инструментов.",
