@@ -71,10 +71,3 @@ Canonical texts — reuse verbatim, adjusting only bracketed parts. Tone rules: 
 
 **oversized-split** (single PR bundling several concerns)
 > Closing this one. It bundles several unrelated concerns — [list] — into a single [size] change across [n] files, which isn't reviewable in this form. If you'd like to pursue [the worthwhile part], please open an issue first to agree on scope, and then a focused PR for that single concern.
-
-**russian-locale** (any PR adding Russian localization — this is a standing decision, apply without re-asking)
-> We’re not accepting Russian localization for OpenChamber.
->
-> This is an intentional maintainership decision due to Russia’s ongoing war against Ukraine. We don’t want to ship or maintain Russian UI support.
->
-> Closing.
