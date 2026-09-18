@@ -54,4 +54,16 @@ describe('i18n store', () => {
       resetStore();
     }
   });
+
+  test('loads the russian dictionary', async () => {
+    try {
+      useI18nStore.getState().setLocale('ru');
+
+      expect(useI18nStore.getState().loadingLocale).toBe('ru');
+      await waitForLocaleLoadToSettle('ru');
+      expect(useI18nStore.getState().dictionary['common.language.russian']).toBe('Русский');
+    } finally {
+      resetStore();
+    }
+  });
 });

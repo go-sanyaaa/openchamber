@@ -12,6 +12,7 @@ import { dict as ukDict } from './messages/uk';
 import { dict as zhCnDict } from './messages/zh-CN';
 import { dict as zhTwDict } from './messages/zh-TW';
 import { dict as trDict } from './messages/tr';
+import { dict as ruDict } from './messages/ru';
 
 const localeDictionaries = {
   en: enDict,
@@ -26,6 +27,7 @@ const localeDictionaries = {
   'zh-CN': zhCnDict,
   'zh-TW': zhTwDict,
   tr: trDict,
+  ru: ruDict,
 } as const;
 
 describe('i18n dictionaries', () => {
@@ -42,6 +44,7 @@ describe('i18n dictionaries', () => {
       expect(dictionary['common.language.german']).toBeTruthy();
       expect(dictionary['common.language.french']).toBeTruthy();
       expect(dictionary['common.language.japanese']).toBeTruthy();
+      expect(dictionary['common.language.russian']).toBeTruthy();
     }
   });
 
